@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,9 +15,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\Setting::create([
-            'bnw' => 1000,
-            'colored' => 2000,
+        \App\Models\User::create([
+            'email' => "admin@eprint.id",
+            'password' => Hash::make("noname13@A"),
         ]);
     }
 }

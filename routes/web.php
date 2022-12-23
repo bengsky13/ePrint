@@ -13,7 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/test', 'App\Http\Controllers\ApiController@doPrint');
+Route::get('/admin', 'App\Http\Controllers\AdminController@index');
+Route::get('/logout', 'App\Http\Controllers\AdminController@logout');
+Route::post('/admin', 'App\Http\Controllers\AdminController@login');
 Route::get('/', 'App\Http\Controllers\HomeController@index');
 Route::get('/init', 'App\Http\Controllers\ApiController@init')->middleware("json");
 Route::get('/{id}', 'App\Http\Controllers\UserController@index');

@@ -76,12 +76,14 @@ class ApiController extends Controller
                 $check->status = 4;
                 $check->touch();
                 $check->save();
-                if ($payment->jenis == 1) {
-                    exec("lpoptions -o print-color-mode=monochrome");
-                } else if ($payment->jenis == 2) {
-                    exec("lpoptions -o print-color-mode=color");
-                }
-                exec("lp ../public/uploads/$id/$id.pdf");
+                $payment->status = 200;
+                $payment->touch();
+                $payment->update();
+                if ($payment->jenis == 1)
+                    $target = "DESK-BNW";
+                else if ($payment->jenis == 2)
+                    $target = "DESK-COLOR";
+                exec("lp ../public/uploads/$id/$id.pdf -d $target");
             }
             $output = array(
                 "status_code" => +$content->status_code,
