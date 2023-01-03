@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/admin', 'App\Http\Controllers\AdminController@index');
+Route::get('/admin/configure', 'App\Http\Controllers\AdminController@configurePrinter');
 Route::get('/logout', 'App\Http\Controllers\AdminController@logout');
 Route::post('/admin', 'App\Http\Controllers\AdminController@login');
 Route::get('/', 'App\Http\Controllers\HomeController@index');

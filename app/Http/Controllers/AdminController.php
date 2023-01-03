@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Payment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Rawilk\Printing\Facades\Printing;
 
 class AdminController extends Controller
 {
@@ -40,5 +41,14 @@ class AdminController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
         return redirect('/admin');
+    }
+    public function configurePrinter()
+    {
+        $printer = Printing::printers();
+
+        print_r($printer);
+
+
+        // return redirect('/admin');
     }
 }

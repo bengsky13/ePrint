@@ -9,7 +9,7 @@ return [
     | Supported: `printnode`, `cups`
     |
     */
-    'driver' => env('PRINTING_DRIVER', 'printnode'),
+    'driver' => env('PRINTING_DRIVER', 'cups'),
 
     /*
     |--------------------------------------------------------------------------
